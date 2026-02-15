@@ -17,10 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from backend.api.views import csrf_failure
 
 urlpatterns = [
     path('api/', include('api.urls')),
 ]
-
-handler403 = csrf_failure

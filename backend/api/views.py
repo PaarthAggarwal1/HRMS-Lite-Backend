@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
+from django.views.decorators.csrf import csrf_exempt
 import pymongo
 import json
 from bson import ObjectId
@@ -11,14 +11,7 @@ db = MongoClient["HRMS"]
 Employees = db["Employees"]
 Attendance = db["Attendance"]
 
-@ensure_csrf_cookie
-def csrf_token(request):
-    return JsonResponse({"detail": "CSRF cookie set"})
-
-def csrf_failure(request, reason=""):
-    return JsonResponse({"error": "CSRF verification failed", "reason": reason}, status=403)
-
-@csrf_protect
+@csrf_exempt
 def employees_view(request):
 
     # ================= GET =================
@@ -105,7 +98,7 @@ def employees_view(request):
     return JsonResponse({"error": "Invalid method"}, status=405)
 
 
-@csrf_protect
+@csrf_exempt
 def attendance_view(request):
 
     # ================= GET =================
