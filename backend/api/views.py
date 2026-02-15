@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
 import pymongo
 import json
 from bson import ObjectId
@@ -18,7 +18,7 @@ def csrf_token(request):
 def csrf_failure(request, reason=""):
     return JsonResponse({"error": "CSRF verification failed", "reason": reason}, status=403)
 
-
+@csrf_protect
 def employees_view(request):
 
     # ================= GET =================
@@ -105,7 +105,7 @@ def employees_view(request):
     return JsonResponse({"error": "Invalid method"}, status=405)
 
 
-
+@csrf_protect
 def attendance_view(request):
 
     # ================= GET =================
