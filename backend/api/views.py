@@ -15,6 +15,10 @@ Attendance = db["Attendance"]
 def csrf_token(request):
     return JsonResponse({"detail": "CSRF cookie set"})
 
+def csrf_failure(request, reason=""):
+    return JsonResponse({"error": "CSRF verification failed", "reason": reason}, status=403)
+
+
 def employees_view(request):
 
     # ================= GET =================

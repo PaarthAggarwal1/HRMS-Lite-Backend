@@ -141,11 +141,23 @@ CORS_ALLOW_METHODS = [
     "PUT",
 ]
 
+# ========== CSRF Configuration ==========
 CSRF_TRUSTED_ORIGINS = [
     "https://hrms-lite-frontend-azure.vercel.app",
+    "http://localhost:5173",
+    "http://localhost:8000",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:8000",
 ]
-CSRF_COOKIE_SECURE = False
-SESSION_COOKIE_SECURE = False
 
-CSRF_COOKIE_SAMESITE = "Lax"
-SESSION_COOKIE_SAMESITE = "Lax"
+CSRF_COOKIE_SECURE = True  # True for HTTPS (Render)
+CSRF_COOKIE_HTTPONLY = False  # False so JS can read it
+CSRF_COOKIE_SAMESITE = "None"  # None for cross-domain
+CSRF_COOKIE_AGE = 31449600
+
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = False
+SESSION_COOKIE_SAMESITE = "None"
+
+# Allow CSRF without referer check
+CSRF_FAILURE_VIEW = 'api.views.csrf_failure'
