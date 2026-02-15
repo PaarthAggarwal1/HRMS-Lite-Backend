@@ -158,6 +158,3 @@ CSRF_COOKIE_AGE = 31449600
 SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_HTTPONLY = False
 SESSION_COOKIE_SAMESITE = "None"
-
-# Allow CSRF without referer check
-CSRF_FAILURE_VIEW = 'api.views.csrf_failure'
