@@ -130,16 +130,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "https://hrms-lite-frontend-azure.vercel.app",
 ]
-CORS_ORIGIN_WHITELIST = [
-    "https://hrms-lite-frontend-azure.vercel.app",
-]
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_ALLOW_ALL=False
-CORS_ALLOW_HEADERS = [
-    'content-type',
-    'authorization',
-    'x-requested-with',
+CORS_ALLOW_ALL_HEADERS = True
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
 ]
+
 CSRF_TRUSTED_ORIGINS = [
     "https://hrms-lite-frontend-azure.vercel.app",
 ]
