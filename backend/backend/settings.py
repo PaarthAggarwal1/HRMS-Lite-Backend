@@ -128,10 +128,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
+    "https://hrms-lite-frontend-azure.vercel.app",
 ]
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:5173",
+    "https://hrms-lite-frontend-azure.vercel.app",
 ]
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL=False
@@ -141,5 +141,5 @@ CORS_ALLOW_HEADERS = [
     'x-requested-with',
 ]
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:5173",
+    "https://hrms-lite-frontend-azure.vercel.app",
 ]
